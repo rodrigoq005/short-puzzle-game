@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dwi8uuxngp2bn"]
+
+[ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://icon.svg" id="1_4dtp2"]
+
+[node name="Rodrigo\'s Scene" type="Node2D" unique_id=1309563516]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=747941110]
+modulate = Color(1, 0.21568628, 0.9490196, 1)
+position = Vector2(946, 316)
+skew = 0.62133723
+texture = ExtResource("1_4dtp2")
