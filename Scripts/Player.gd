@@ -25,11 +25,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_interaction_detector_area_entered(area: Area2D) -> void:
 	print("interactable detected")
-	area.set_active(true)
+	#area.set_active(true)
 	nearby_interactables.append(area)
 
 
 func _on_interaction_detector_area_exited(area: Area2D) -> void:
 	print("interactable removed")
-	area.set_active(false)
+	#area.set_active(false)
 	nearby_interactables.erase(area)
