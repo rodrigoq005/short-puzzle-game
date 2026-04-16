@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ti5yvttpipx3"]
+
+[ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="1_ep3je"]
+[ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="2_geepv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20a07"]
+size = Vector2(42, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_had0j"]
+radius = 81.055534
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ep3je"]
+normal = Vector2(1, 0)
+
+[node name="StartingRoom" type="Node2D" unique_id=2036018846]
+position = Vector2(587, 320)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1738192092]
+script = ExtResource("1_ep3je")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=54391425]
+shape = SubResource("RectangleShape2D_20a07")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1939048485]
+position = Vector2(0.7499981, 9.536743e-07)
+scale = Vector2(0.3320312, 0.328125)
+texture = ExtResource("2_geepv")
+
+[node name="InteractionDetector" type="Area2D" parent="Player" unique_id=416048464]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionDetector" unique_id=1299537657]
+shape = SubResource("CircleShape2D_had0j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=277335128]
+z_index = -1
+offset_left = -484.0
+offset_top = -239.0
+offset_right = 464.0
+offset_bottom = 249.0
+color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+
+[node name="Background" type="ColorRect" parent="." unique_id=1014508306]
+z_index = -2
+offset_left = -587.0
+offset_top = -319.0
+offset_right = 567.0
+offset_bottom = 328.0
+color = Color(0, 0, 0, 1)
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=88182740]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1656997598]
+position = Vector2(-484, -26)
+shape = SubResource("WorldBoundaryShape2D_ep3je")
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=1331085589]
+visible = false
+position = Vector2(-374.206, -142.01833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1103214167]
+position = Vector2(368.206, -96.981674)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_ep3je")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=1673460575]
+visible = false
+position = Vector2(-305.28372, -79.92619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1737828315]
+position = Vector2(769.2837, 53.92621)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_ep3je")
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=261879298]
+visible = false
+position = Vector2(-271.75397, -39.566315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1379768626]
+position = Vector2(261.75403, 289.56635)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_ep3je")
+
+[connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
