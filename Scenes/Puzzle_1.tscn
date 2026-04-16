@@ -1,3 +1,188 @@
 [gd_scene format=3 uid="uid://cf4yg26kp7psn"]
 
+[ext_resource type="Script" uid="uid://d1vot15hcjrk2" path="res://Scripts/P1_to_Start.gd" id="1_qxwfy"]
+[ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="2_qxwfy"]
+[ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="3_bwip5"]
+[ext_resource type="Script" uid="uid://dc8ec4hlltktn" path="res://Scripts/coin.gd" id="4_pyqrf"]
+[ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="5_f6ocp"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i4mwd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxwfy"]
+radius = 101.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyqrf"]
+size = Vector2(42, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6ocp"]
+radius = 81.055534
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfmhy"]
+radius = 40.0
+
 [node name="Puzzle1" type="Node2D" unique_id=915340702]
+metadata/_edit_lock_ = true
+
+[node name="Floor" type="ColorRect" parent="." unique_id=1679659072]
+z_index = -1
+offset_left = 103.0
+offset_top = 81.0
+offset_right = 1051.0
+offset_bottom = 569.0
+color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="." unique_id=559133024]
+z_index = -2
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=450183230]
+visible = false
+position = Vector2(579.206, 316.0183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=829682259]
+position = Vector2(-484, -26)
+shape = SubResource("WorldBoundaryShape2D_i4mwd")
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=2075598657]
+visible = false
+position = Vector2(205, 173.99998)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=2039415928]
+position = Vector2(368.206, -96.981674)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_i4mwd")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=670579968]
+visible = false
+position = Vector2(273.92227, 236.09212)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=470531426]
+position = Vector2(769.2837, 53.92621)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_i4mwd")
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=187556880]
+visible = false
+position = Vector2(307.45203, 276.45197)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=681778668]
+position = Vector2(261.75403, 289.56635)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_i4mwd")
+
+[node name="Left_Door" type="Area2D" parent="." unique_id=1467965612]
+position = Vector2(1024, 310)
+script = ExtResource("1_qxwfy")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+metadata/_edit_lock_ = true
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Left_Door" unique_id=1724720247]
+position = Vector2(6, 0)
+shape = SubResource("CircleShape2D_qxwfy")
+
+[node name="ColorRect" type="ColorRect" parent="Left_Door/InteractRadius" unique_id=2130291008]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 21.0
+offset_bottom = 64.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2043420726]
+position = Vector2(979, 310)
+script = ExtResource("2_qxwfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=66390515]
+shape = SubResource("RectangleShape2D_pyqrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1379954415]
+position = Vector2(0.7499981, 9.536743e-07)
+scale = Vector2(0.3320312, 0.328125)
+texture = ExtResource("3_bwip5")
+
+[node name="InteractionDetector" type="Area2D" parent="Player" unique_id=1114347175]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionDetector" unique_id=2054927359]
+shape = SubResource("CircleShape2D_f6ocp")
+
+[node name="Coin" type="Area2D" parent="." unique_id=1082716753]
+position = Vector2(328, 469)
+script = ExtResource("4_pyqrf")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin" unique_id=1290529538]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tfmhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin" unique_id=630697154]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("5_f6ocp")
+
+[node name="Coin2" type="Area2D" parent="." unique_id=567568372]
+position = Vector2(288, 193)
+script = ExtResource("4_pyqrf")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin2" unique_id=375794558]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tfmhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2" unique_id=1173647562]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("5_f6ocp")
+
+[node name="Coin3" type="Area2D" parent="." unique_id=707399004]
+position = Vector2(529, 328)
+script = ExtResource("4_pyqrf")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin3" unique_id=722199837]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tfmhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3" unique_id=793767707]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("5_f6ocp")
+
+[node name="Coin4" type="Area2D" parent="." unique_id=1099388753]
+position = Vector2(725, 200)
+script = ExtResource("4_pyqrf")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin4" unique_id=1633916226]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tfmhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4" unique_id=420734563]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("5_f6ocp")
+
+[node name="Coin5" type="Area2D" parent="." unique_id=1001662131]
+position = Vector2(745, 462)
+script = ExtResource("4_pyqrf")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin5" unique_id=2027411622]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_tfmhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5" unique_id=151611845]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("5_f6ocp")
+
+[connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
