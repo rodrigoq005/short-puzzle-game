@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="1_ep3je"]
 [ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="2_geepv"]
+[ext_resource type="Script" uid="uid://b1y5bsqx0lnsk" path="res://Scripts/Door.gd" id="3_geepv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20a07"]
 size = Vector2(42, 41)
@@ -12,8 +13,12 @@ radius = 81.055534
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ep3je"]
 normal = Vector2(1, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_20a07"]
+radius = 101.0
+
 [node name="StartingRoom" type="Node2D" unique_id=2036018846]
 position = Vector2(587, 320)
+metadata/_edit_lock_ = true
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1738192092]
 script = ExtResource("1_ep3je")
@@ -40,6 +45,7 @@ offset_top = -239.0
 offset_right = 464.0
 offset_bottom = 249.0
 color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=1014508306]
 z_index = -2
@@ -48,6 +54,7 @@ offset_top = -319.0
 offset_right = 567.0
 offset_bottom = 328.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Left" type="StaticBody2D" parent="." unique_id=88182740]
 visible = false
@@ -82,6 +89,22 @@ position = Vector2(-271.75397, -39.566315)
 position = Vector2(261.75403, 289.56635)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_ep3je")
+
+[node name="Left_Door" type="Area2D" parent="." unique_id=198330554]
+position = Vector2(-465, -4)
+script = ExtResource("3_geepv")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Left_Door" unique_id=726910436]
+shape = SubResource("CircleShape2D_20a07")
+
+[node name="ColorRect" type="ColorRect" parent="Left_Door/InteractRadius" unique_id=570687654]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 21.0
+offset_bottom = 64.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
 [connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
