@@ -117,6 +117,7 @@ shape = SubResource("CircleShape2D_f6ocp")
 [node name="Coin" type="Area2D" parent="." unique_id=1082716753]
 position = Vector2(328, 469)
 script = ExtResource("4_pyqrf")
+coin_id = "1"
 metadata/_custom_type_script = "uid://etia5ljdr22u"
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Coin" unique_id=1290529538]
@@ -131,6 +132,7 @@ texture = ExtResource("5_f6ocp")
 [node name="Coin2" type="Area2D" parent="." unique_id=567568372]
 position = Vector2(288, 193)
 script = ExtResource("4_pyqrf")
+coin_id = "2"
 metadata/_custom_type_script = "uid://etia5ljdr22u"
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Coin2" unique_id=375794558]
@@ -145,6 +147,7 @@ texture = ExtResource("5_f6ocp")
 [node name="Coin3" type="Area2D" parent="." unique_id=707399004]
 position = Vector2(529, 328)
 script = ExtResource("4_pyqrf")
+coin_id = "3"
 metadata/_custom_type_script = "uid://etia5ljdr22u"
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Coin3" unique_id=722199837]
@@ -159,6 +162,7 @@ texture = ExtResource("5_f6ocp")
 [node name="Coin4" type="Area2D" parent="." unique_id=1099388753]
 position = Vector2(725, 200)
 script = ExtResource("4_pyqrf")
+coin_id = "4"
 metadata/_custom_type_script = "uid://etia5ljdr22u"
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Coin4" unique_id=1633916226]
@@ -173,6 +177,7 @@ texture = ExtResource("5_f6ocp")
 [node name="Coin5" type="Area2D" parent="." unique_id=1001662131]
 position = Vector2(745, 462)
 script = ExtResource("4_pyqrf")
+coin_id = "5"
 metadata/_custom_type_script = "uid://etia5ljdr22u"
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Coin5" unique_id=2027411622]
