@@ -34,8 +34,8 @@ func _on_interaction_detector_area_exited(area: Area2D) -> void:
 	#area.set_active(false)
 	nearby_interactables.erase(area)
 
-if Input.is_action_just_pressed("interact"):
-	print("E PRESSED")
-	if nearby_interactables:
-		print("INTERACTING WITH:", nearby_interactables.back().name)
-		nearby_interactables.back().interact()
+#if Input.is_action_just_pressed("interact"):
+	#print("E PRESSED")
+	#if nearby_interactables:
+		#print("INTERACTING WITH:", nearby_interactables.back().name)
+		#nearby_interactables.back().interact()
