@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://d0nu17xejhoq3"]
 
+[ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_44vye"]
+[ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="2_5bhxv"]
+[ext_resource type="Script" uid="uid://cwbftr4n4ko0q" path="res://Scenes/switch_1.gd" id="2_f77e0"]
+[ext_resource type="Texture2D" uid="uid://cnidhntavsx0q" path="res://images/dungeon-texture-tile-pattern-pixel-260nw-2431607337.webp" id="4_ej08q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f77e0"]
+size = Vector2(223.00002, 137)
+
 [node name="Puzzle2" type="Node2D" unique_id=935435261]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=852457084]
+format = 2
+
+[node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_44vye")]
+
+[node name="Switch1" type="Area2D" parent="." unique_id=1381233302]
+rotation = 0.003123343
+script = ExtResource("2_f77e0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1" unique_id=1451859838]
+position = Vector2(413.5, -219.5)
+shape = SubResource("RectangleShape2D_f77e0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Switch1" unique_id=2147352879]
+position = Vector2(412.125, -218.875)
+scale = Vector2(0.2348632, 0.20361328)
+texture = ExtResource("2_5bhxv")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2018629688]
+z_index = -1
+position = Vector2(1, 49.000015)
+rotation = -0.006751471
+scale = Vector2(3.4006586, 3.2209954)
+texture = ExtResource("4_ej08q")
+region_enabled = true
+region_rect = Rect2(0, 0, 431, 260.25)

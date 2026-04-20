@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b8cgpjm6ovpy2"]
+
+[ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="2_6t5aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylv0c"]
+size = Vector2(42, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylv0c"]
+radius = 81.055534
+
+[node name="Player" type="CharacterBody2D" unique_id=1450410901]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=514933987]
+shape = SubResource("RectangleShape2D_ylv0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=118961658]
+position = Vector2(0.7499981, 9.536743e-07)
+scale = Vector2(0.3320312, 0.328125)
+texture = ExtResource("2_6t5aa")
+
+[node name="InteractionDetector" type="Area2D" parent="." unique_id=1439767725]
+light_mask = 2
+visibility_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionDetector" unique_id=87478629]
+shape = SubResource("CircleShape2D_ylv0c")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=173734407]
+
+[connection signal="area_entered" from="InteractionDetector" to="." method="_on_interaction_detector_area_entered"]
+[connection signal="area_exited" from="InteractionDetector" to="." method="_on_interaction_detector_area_exited"]

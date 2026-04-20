@@ -1,40 +1,15 @@
 [gd_scene format=3 uid="uid://dwi8uuxngp2bn"]
 
-[ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="1_7rqgy"]
-[ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="2_qxria"]
+[ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_y8rd5"]
 [ext_resource type="Script" uid="uid://dc8ec4hlltktn" path="res://Scripts/coin.gd" id="3_y4jh7"]
 [ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="4_q68mp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylv0c"]
-size = Vector2(42, 41)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ylv0c"]
-radius = 81.055534
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hklr"]
 radius = 40.0
 
 [node name="Rodrigo\'s Scene" type="Node2D" unique_id=1309563516]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1777712344]
-script = ExtResource("1_7rqgy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1326550465]
-shape = SubResource("RectangleShape2D_ylv0c")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=687917308]
-position = Vector2(0.7499981, 9.536743e-07)
-scale = Vector2(0.3320312, 0.328125)
-texture = ExtResource("2_qxria")
-
-[node name="InteractionDetector" type="Area2D" parent="Player" unique_id=437132580]
-light_mask = 2
-visibility_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/InteractionDetector" unique_id=1186541691]
-shape = SubResource("CircleShape2D_ylv0c")
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=547550945]
+[node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_y8rd5")]
 
 [node name="Coin" type="Area2D" parent="." unique_id=798631871]
 position = Vector2(100, 100)
@@ -105,6 +80,3 @@ shape = SubResource("CircleShape2D_4hklr")
 [node name="Sprite2D" type="Sprite2D" parent="Coin5" unique_id=376999565]
 scale = Vector2(0.03515625, 0.03808594)
 texture = ExtResource("4_q68mp")
-
-[connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
-[connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
