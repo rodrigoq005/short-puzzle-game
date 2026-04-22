@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_44vye"]
 [ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="2_5bhxv"]
-[ext_resource type="Script" uid="uid://cwbftr4n4ko0q" path="res://Scripts/switch1.gd" id="2_f77e0"]
+[ext_resource type="Script" uid="uid://cwbftr4n4ko0q" path="res://Scripts/SwitchP2.gd" id="2_f77e0"]
 [ext_resource type="Script" uid="uid://drkngnpqq4cs3" path="res://Scripts/PlayerRP2.gd" id="2_ffxlk"]
 [ext_resource type="Texture2D" uid="uid://cnidhntavsx0q" path="res://images/dungeon-texture-tile-pattern-pixel-260nw-2431607337.webp" id="4_ej08q"]
 [ext_resource type="Script" uid="uid://b3a18yf5d6ud7" path="res://Scripts/P2_to_Start.gd" id="6_ma6vp"]
+[ext_resource type="Script" uid="uid://dc8ec4hlltktn" path="res://Scripts/coin.gd" id="7_1brbl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f77e0"]
 size = Vector2(223.00002, 137)
@@ -25,20 +26,23 @@ normal = Vector2(1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ws4qd"]
 normal = Vector2(1, 0)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ek2co"]
+radius = 40.0
+
 [node name="Puzzle2" type="Node2D" unique_id=935435261]
 
 [node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_44vye")]
 script = ExtResource("2_ffxlk")
 
-[node name="Switch1" type="Area2D" parent="." unique_id=1381233302]
+[node name="SwitchP2" type="Area2D" parent="." unique_id=1381233302]
 rotation = 0.003123343
 script = ExtResource("2_f77e0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch1" unique_id=1451859838]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwitchP2" unique_id=1451859838]
 position = Vector2(413.5, -219.5)
 shape = SubResource("RectangleShape2D_f77e0")
 
-[node name="Sprite2D" type="Sprite2D" parent="Switch1" unique_id=2147352879]
+[node name="Sprite2D" type="Sprite2D" parent="SwitchP2" unique_id=2147352879]
 position = Vector2(412.125, -218.875)
 scale = Vector2(0.2348632, 0.20361328)
 texture = ExtResource("2_5bhxv")
@@ -101,3 +105,78 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=799190314]
 position = Vector2(-484, -26)
 shape = SubResource("WorldBoundaryShape2D_ws4qd")
+
+[node name="Coin1" type="Area2D" parent="." unique_id=1087374021]
+position = Vector2(328, 182)
+script = ExtResource("7_1brbl")
+coin_id = "R1"
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin1" unique_id=156196159]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_ek2co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin1" unique_id=1493345248]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("2_5bhxv")
+
+[node name="Coin2" type="Area2D" parent="." unique_id=1221219722]
+position = Vector2(-321, -206)
+script = ExtResource("7_1brbl")
+coin_id = "R2"
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin2" unique_id=483746537]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_ek2co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2" unique_id=690788465]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("2_5bhxv")
+
+[node name="Coin3" type="Area2D" parent="." unique_id=560987467]
+position = Vector2(-290, 184)
+script = ExtResource("7_1brbl")
+coin_id = "R3"
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin3" unique_id=858274868]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_ek2co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3" unique_id=1956568187]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("2_5bhxv")
+
+[node name="Coin4" type="Area2D" parent="." unique_id=775722526]
+position = Vector2(38, -231)
+script = ExtResource("7_1brbl")
+coin_id = "R4"
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin4" unique_id=1641966165]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_ek2co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4" unique_id=710584213]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("2_5bhxv")
+
+[node name="Coin5" type="Area2D" parent="." unique_id=694587312]
+position = Vector2(339, -41)
+script = ExtResource("7_1brbl")
+coin_id = "R5"
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin5" unique_id=546079723]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_ek2co")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5" unique_id=413526247]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("2_5bhxv")
