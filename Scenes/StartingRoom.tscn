@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmyl51gb74yx4" path="res://Scripts/Player.gd" id="1_ep3je"]
 [ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="2_geepv"]
-[ext_resource type="Script" path="res://Scripts/Start_to_P1.gd" id="3_geepv"]
+[ext_resource type="Script" uid="uid://b1y5bsqx0lnsk" path="res://Scripts/Start_to_P1.gd" id="3_geepv"]
+[ext_resource type="Script" uid="uid://frbt7sjwq62c" path="res://Scripts/Start_to_P2.gd" id="4_20a07"]
+[ext_resource type="Script" uid="uid://d3p6lk0v1wtck" path="res://Scripts/Start_to_FinalRoom.gd" id="5_had0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20a07"]
 size = Vector2(42, 41)
@@ -96,6 +98,39 @@ metadata/_custom_type_script = "uid://etia5ljdr22u"
 shape = SubResource("CircleShape2D_20a07")
 
 [node name="ColorRect" type="ColorRect" parent="Left_Door/InteractRadius" unique_id=570687654]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 21.0
+offset_bottom = 64.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Right_Door" type="Area2D" parent="." unique_id=724323422]
+position = Vector2(444, -4)
+script = ExtResource("4_20a07")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Right_Door" unique_id=1463449152]
+shape = SubResource("CircleShape2D_20a07")
+
+[node name="ColorRect" type="ColorRect" parent="Right_Door/InteractRadius" unique_id=1983551604]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 21.0
+offset_bottom = 64.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="FinalRoom" type="Area2D" parent="." unique_id=1649445575]
+position = Vector2(-8, -220)
+rotation = 1.5707964
+script = ExtResource("5_had0j")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="FinalRoom" unique_id=985319116]
+shape = SubResource("CircleShape2D_20a07")
+
+[node name="ColorRect" type="ColorRect" parent="FinalRoom/InteractRadius" unique_id=1970818342]
 offset_left = -19.0
 offset_top = -59.0
 offset_right = 21.0

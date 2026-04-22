@@ -1,3 +1,85 @@
 [gd_scene format=3 uid="uid://btl5aodnsdlo4"]
 
+[ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_lctwc"]
+[ext_resource type="Script" uid="uid://drkngnpqq4cs3" path="res://Scripts/PlayerRP2.gd" id="2_emmmv"]
+[ext_resource type="Script" uid="uid://b3a18yf5d6ud7" path="res://Scripts/P2_to_Start.gd" id="3_1xs8g"]
+[ext_resource type="Texture2D" uid="uid://cnidhntavsx0q" path="res://images/dungeon-texture-tile-pattern-pixel-260nw-2431607337.webp" id="4_13vnw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13vnw"]
+radius = 101.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_13vnw"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y15i6"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rk4ig"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_05jea"]
+normal = Vector2(1, 0)
+
 [node name="FinalRoom" type="Node2D" unique_id=886498916]
+
+[node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_lctwc")]
+script = ExtResource("2_emmmv")
+
+[node name="ReturnDoor" type="Area2D" parent="." unique_id=203131702]
+position = Vector2(-1, 301)
+rotation = 1.5707964
+script = ExtResource("3_1xs8g")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="ReturnDoor" unique_id=117107674]
+shape = SubResource("CircleShape2D_13vnw")
+
+[node name="ColorRect" type="ColorRect" parent="ReturnDoor/InteractRadius" unique_id=1825141197]
+offset_left = -19.0
+offset_top = -59.0
+offset_right = 21.0
+offset_bottom = 64.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=371916503]
+z_index = -1
+position = Vector2(-2, -2.4999924)
+scale = Vector2(2.686916, 2.5429688)
+texture = ExtResource("4_13vnw")
+region_enabled = true
+region_rect = Rect2(0, 0, 428, 256.25)
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=1428077022]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1938613156]
+position = Vector2(-484, -26)
+shape = SubResource("WorldBoundaryShape2D_13vnw")
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=905781296]
+visible = false
+position = Vector2(-374.206, -142.01833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=858796767]
+position = Vector2(368.206, -96.981674)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_y15i6")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=2131403454]
+visible = false
+position = Vector2(-305.28372, -79.92619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1571687337]
+position = Vector2(769.2837, 53.92621)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_rk4ig")
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=1788084232]
+visible = false
+position = Vector2(-271.75397, -39.566315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=677638720]
+position = Vector2(261.75403, 289.56635)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_05jea")

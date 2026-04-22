@@ -2,18 +2,33 @@
 
 [ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_44vye"]
 [ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="2_5bhxv"]
-[ext_resource type="Script" uid="uid://cwbftr4n4ko0q" path="res://Scenes/switch_1.gd" id="2_f77e0"]
+[ext_resource type="Script" uid="uid://cwbftr4n4ko0q" path="res://Scripts/switch1.gd" id="2_f77e0"]
+[ext_resource type="Script" uid="uid://drkngnpqq4cs3" path="res://Scripts/PlayerRP2.gd" id="2_ffxlk"]
 [ext_resource type="Texture2D" uid="uid://cnidhntavsx0q" path="res://images/dungeon-texture-tile-pattern-pixel-260nw-2431607337.webp" id="4_ej08q"]
+[ext_resource type="Script" uid="uid://b3a18yf5d6ud7" path="res://Scripts/P2_to_Start.gd" id="6_ma6vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f77e0"]
 size = Vector2(223.00002, 137)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1brbl"]
+radius = 101.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ma6vp"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1brbl"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ek2co"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ws4qd"]
+normal = Vector2(1, 0)
+
 [node name="Puzzle2" type="Node2D" unique_id=935435261]
 
-[node name="TileMap" type="TileMap" parent="." unique_id=852457084]
-format = 2
-
 [node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_44vye")]
+script = ExtResource("2_ffxlk")
 
 [node name="Switch1" type="Area2D" parent="." unique_id=1381233302]
 rotation = 0.003123343
@@ -30,9 +45,59 @@ texture = ExtResource("2_5bhxv")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=2018629688]
 z_index = -1
-position = Vector2(1, 49.000015)
+position = Vector2(29.298336, -8.259277)
 rotation = -0.006751471
-scale = Vector2(3.4006586, 3.2209954)
+scale = Vector2(2.9700847, 2.9119878)
 texture = ExtResource("4_ej08q")
 region_enabled = true
 region_rect = Rect2(0, 0, 431, 260.25)
+
+[node name="ReturnDoor" type="Area2D" parent="." unique_id=550858166]
+position = Vector2(-554, -4)
+script = ExtResource("6_ma6vp")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="ReturnDoor" unique_id=1326860707]
+shape = SubResource("CircleShape2D_1brbl")
+
+[node name="ColorRect" type="ColorRect" parent="ReturnDoor/InteractRadius" unique_id=1845894121]
+offset_left = 15.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 68.0
+color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=1840634218]
+visible = false
+position = Vector2(-271.75397, -39.566315)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1083223504]
+position = Vector2(261.75403, 289.56635)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_ma6vp")
+
+[node name="Right" type="StaticBody2D" parent="." unique_id=1995468804]
+visible = false
+position = Vector2(-305.28372, -79.92619)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1100077459]
+position = Vector2(769.2837, 53.92621)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_1brbl")
+
+[node name="Top" type="StaticBody2D" parent="." unique_id=1773754287]
+visible = false
+position = Vector2(-374.206, -142.01833)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1974110310]
+position = Vector2(368.206, -96.981674)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_ek2co")
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=350114050]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=799190314]
+position = Vector2(-484, -26)
+shape = SubResource("WorldBoundaryShape2D_ws4qd")
