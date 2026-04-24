@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://j6x525rh6jvk" path="res://images/icon.svg" id="3_bwip5"]
 [ext_resource type="Script" uid="uid://dc8ec4hlltktn" path="res://Scripts/coin.gd" id="4_pyqrf"]
 [ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="5_f6ocp"]
+[ext_resource type="Script" uid="uid://wnk71el2e75a" path="res://Scripts/button.gd" id="6_f6ocp"]
+[ext_resource type="Script" uid="uid://b8rtcw550yw66" path="res://Scripts/red_block.gd" id="7_tfmhy"]
+[ext_resource type="Script" uid="uid://crca8f32krw11" path="res://Scripts/blue_block.gd" id="8_u4pk1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i4mwd"]
 normal = Vector2(1, 0)
@@ -20,6 +23,12 @@ radius = 81.055534
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tfmhy"]
 radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4pk1"]
+radius = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uy8y"]
+size = Vector2(58, 59)
 
 [node name="Puzzle1" type="Node2D" unique_id=915340702]
 metadata/_edit_lock_ = true
@@ -42,37 +51,37 @@ offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Left" type="StaticBody2D" parent="." unique_id=450183230]
+[node name="LeftBorder" type="StaticBody2D" parent="." unique_id=450183230]
 visible = false
 position = Vector2(579.206, 316.0183)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=829682259]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBorder" unique_id=829682259]
 position = Vector2(-484, -26)
 shape = SubResource("WorldBoundaryShape2D_i4mwd")
 
-[node name="Top" type="StaticBody2D" parent="." unique_id=2075598657]
+[node name="TopBorder" type="StaticBody2D" parent="." unique_id=2075598657]
 visible = false
 position = Vector2(205, 173.99998)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=2039415928]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorder" unique_id=2039415928]
 position = Vector2(368.206, -96.981674)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_i4mwd")
 
-[node name="Right" type="StaticBody2D" parent="." unique_id=670579968]
+[node name="RightBorder" type="StaticBody2D" parent="." unique_id=670579968]
 visible = false
 position = Vector2(273.92227, 236.09212)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=470531426]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBorder" unique_id=470531426]
 position = Vector2(769.2837, 53.92621)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_i4mwd")
 
-[node name="Bottom" type="StaticBody2D" parent="." unique_id=187556880]
+[node name="BottomBorder" type="StaticBody2D" parent="." unique_id=187556880]
 visible = false
 position = Vector2(307.45203, 276.45197)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=681778668]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder" unique_id=681778668]
 position = Vector2(261.75403, 289.56635)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_i4mwd")
@@ -189,5 +198,51 @@ shape = SubResource("CircleShape2D_tfmhy")
 scale = Vector2(0.03515625, 0.03808594)
 texture = ExtResource("5_f6ocp")
 
+[node name="Button" type="Area2D" parent="." unique_id=1925918018]
+script = ExtResource("6_f6ocp")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Button" unique_id=986195045]
+position = Vector2(954, 91)
+shape = SubResource("CircleShape2D_u4pk1")
+
+[node name="ColorRect" type="ColorRect" parent="Button" unique_id=1257335594]
+offset_left = 934.0
+offset_top = 81.0
+offset_right = 974.0
+offset_bottom = 101.0
+
+[node name="RedBlock" type="StaticBody2D" parent="." unique_id=1778431571]
+position = Vector2(817, 192)
+script = ExtResource("7_tfmhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedBlock" unique_id=1667697543]
+position = Vector2(11, 10.5)
+shape = SubResource("RectangleShape2D_7uy8y")
+
+[node name="ColorRect" type="ColorRect" parent="RedBlock" unique_id=1924228244]
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.72156864, 0, 0, 1)
+
+[node name="BlueBlock" type="StaticBody2D" parent="." unique_id=1888365490]
+position = Vector2(701, 312)
+script = ExtResource("8_u4pk1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueBlock" unique_id=60893215]
+position = Vector2(11, 10.5)
+shape = SubResource("RectangleShape2D_7uy8y")
+
+[node name="ColorRect" type="ColorRect" parent="BlueBlock" unique_id=2140340844]
+offset_left = -18.0
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.13333334, 0.3372549, 0.93333334, 1)
+
 [connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
 [connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
+[connection signal="switch_blocks" from="Button" to="RedBlock" method="_on_button_switch_blocks"]
+[connection signal="switch_blocks" from="Button" to="BlueBlock" method="_on_button_switch_blocks"]
