@@ -2,6 +2,9 @@ extends Node
 
 var collected_coins: Array[String] = []
 var coin_count: int = 0
+var key_collected = false
+var current_scene
+var prev_scene
 
 
 func collect_coin(coin_id: String) -> void:

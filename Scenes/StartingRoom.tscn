@@ -5,6 +5,8 @@
 [ext_resource type="Script" path="res://Scripts/Start_to_P1.gd" id="3_geepv"]
 [ext_resource type="Script" uid="uid://frbt7sjwq62c" path="res://Scripts/Start_to_P2.gd" id="4_20a07"]
 [ext_resource type="Script" uid="uid://d3p6lk0v1wtck" path="res://Scripts/Start_to_FinalRoom.gd" id="5_had0j"]
+[ext_resource type="Script" uid="uid://buaooabtw1622" path="res://Scripts/Key.gd" id="6_ok5ey"]
+[ext_resource type="Texture2D" uid="uid://bc83df3f31vt7" path="res://images/Key_SMW.webp" id="7_6n3lv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20a07"]
 size = Vector2(42, 41)
@@ -17,6 +19,9 @@ normal = Vector2(1, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_20a07"]
 radius = 101.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok5ey"]
+radius = 42.0119
 
 [node name="StartingRoom" type="Node2D" unique_id=2036018846]
 position = Vector2(587, 320)
@@ -47,6 +52,7 @@ offset_top = -239.0
 offset_right = 464.0
 offset_bottom = 249.0
 color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="." unique_id=1014508306]
 z_index = -2
@@ -55,9 +61,11 @@ offset_top = -319.0
 offset_right = 567.0
 offset_bottom = 328.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Left" type="StaticBody2D" parent="." unique_id=88182740]
 visible = false
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1656997598]
 position = Vector2(-484, -26)
@@ -66,6 +74,7 @@ shape = SubResource("WorldBoundaryShape2D_ep3je")
 [node name="Top" type="StaticBody2D" parent="." unique_id=1331085589]
 visible = false
 position = Vector2(-374.206, -142.01833)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1103214167]
 position = Vector2(368.206, -96.981674)
@@ -75,6 +84,7 @@ shape = SubResource("WorldBoundaryShape2D_ep3je")
 [node name="Right" type="StaticBody2D" parent="." unique_id=1673460575]
 visible = false
 position = Vector2(-305.28372, -79.92619)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1737828315]
 position = Vector2(769.2837, 53.92621)
@@ -84,6 +94,7 @@ shape = SubResource("WorldBoundaryShape2D_ep3je")
 [node name="Bottom" type="StaticBody2D" parent="." unique_id=261879298]
 visible = false
 position = Vector2(-271.75397, -39.566315)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1379768626]
 position = Vector2(261.75403, 289.56635)
@@ -94,9 +105,11 @@ shape = SubResource("WorldBoundaryShape2D_ep3je")
 position = Vector2(-465, -4)
 script = ExtResource("3_geepv")
 metadata/_custom_type_script = "uid://etia5ljdr22u"
+metadata/_edit_lock_ = true
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Left_Door" unique_id=726910436]
 shape = SubResource("CircleShape2D_20a07")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Left_Door/InteractRadius" unique_id=570687654]
 offset_left = -19.0
@@ -105,14 +118,17 @@ offset_right = 21.0
 offset_bottom = 64.0
 color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Right_Door" type="Area2D" parent="." unique_id=724323422]
 position = Vector2(444, -4)
 script = ExtResource("4_20a07")
 metadata/_custom_type_script = "uid://etia5ljdr22u"
+metadata/_edit_lock_ = true
 
 [node name="InteractRadius" type="CollisionShape2D" parent="Right_Door" unique_id=1463449152]
 shape = SubResource("CircleShape2D_20a07")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Right_Door/InteractRadius" unique_id=1983551604]
 offset_left = -19.0
@@ -121,15 +137,18 @@ offset_right = 21.0
 offset_bottom = 64.0
 color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="FinalRoom" type="Area2D" parent="." unique_id=1649445575]
 position = Vector2(-8, -220)
 rotation = 1.5707964
 script = ExtResource("5_had0j")
 metadata/_custom_type_script = "uid://etia5ljdr22u"
+metadata/_edit_lock_ = true
 
 [node name="InteractRadius" type="CollisionShape2D" parent="FinalRoom" unique_id=985319116]
 shape = SubResource("CircleShape2D_20a07")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="FinalRoom/InteractRadius" unique_id=1970818342]
 offset_left = -19.0
@@ -138,6 +157,20 @@ offset_right = 21.0
 offset_bottom = 64.0
 color = Color(0.42834675, 0.19590655, 6.738305e-07, 1)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Key" type="Area2D" parent="." unique_id=1179778383]
+script = ExtResource("6_ok5ey")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=2172156]
+position = Vector2(-12, 148)
+scale = Vector2(0.22265625, 0.26171875)
+texture = ExtResource("7_6n3lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1180660526]
+position = Vector2(-11, 144)
+shape = SubResource("CircleShape2D_ok5ey")
 
 [connection signal="area_entered" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_entered"]
 [connection signal="area_exited" from="Player/InteractionDetector" to="Player" method="_on_interaction_detector_area_exited"]
