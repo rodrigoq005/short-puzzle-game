@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_switch_blocks() -> void:
+func toggle_state() -> void:
 	if !switch_state:
 		modulate.a = 1.0
 		$CollisionShape2D.set_deferred("disabled", false)
