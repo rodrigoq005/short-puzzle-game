@@ -3,10 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://b8cgpjm6ovpy2" path="res://Scenes/player.tscn" id="1_lctwc"]
 [ext_resource type="Script" uid="uid://drkngnpqq4cs3" path="res://Scripts/PlayerRP2.gd" id="2_emmmv"]
 [ext_resource type="Script" uid="uid://b3a18yf5d6ud7" path="res://Scripts/P2_to_Start.gd" id="3_1xs8g"]
+[ext_resource type="Script" uid="uid://cdufxlhp2t0wm" path="res://Scripts/FinalRoomCamera.gd" id="3_05jea"]
 [ext_resource type="Texture2D" uid="uid://cnidhntavsx0q" path="res://images/dungeon-texture-tile-pattern-pixel-260nw-2431607337.webp" id="4_13vnw"]
+[ext_resource type="Script" uid="uid://etia5ljdr22u" path="res://Scripts/interactables.gd" id="5_rk4ig"]
+[ext_resource type="Texture2D" uid="uid://renwdjjoies" path="res://images/coin.png" id="6_05jea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_13vnw"]
 radius = 101.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2xd67"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ix5y"]
+radius = 40.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_13vnw"]
 normal = Vector2(1, 0)
@@ -23,7 +32,17 @@ normal = Vector2(1, 0)
 [node name="FinalRoom" type="Node2D" unique_id=886498916]
 
 [node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_lctwc")]
+position = Vector2(0, 166)
 script = ExtResource("2_emmmv")
+
+[node name="Camera2D2" type="Camera2D" parent="Player" unique_id=483259283]
+zoom = Vector2(1.25, 1.25)
+limit_left = -575
+limit_top = -325
+limit_right = 575
+limit_bottom = 325
+position_smoothing_enabled = true
+script = ExtResource("3_05jea")
 
 [node name="ReturnDoor" type="Area2D" parent="." unique_id=203131702]
 position = Vector2(-1, 301)
@@ -50,36 +69,581 @@ texture = ExtResource("4_13vnw")
 region_enabled = true
 region_rect = Rect2(0, 0, 428, 256.25)
 
-[node name="Left" type="StaticBody2D" parent="." unique_id=1428077022]
-visible = false
+[node name="Coin1" type="Area2D" parent="." unique_id=74125988]
+position = Vector2(-502, 18)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1938613156]
-position = Vector2(-484, -26)
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin1" unique_id=1556665236]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin1" unique_id=1407700506]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin2" type="Area2D" parent="." unique_id=302030038]
+position = Vector2(304, -161)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin2" unique_id=1218088255]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2" unique_id=710887711]
+position = Vector2(-38.815777, 48.571426)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin3" type="Area2D" parent="." unique_id=57908900]
+position = Vector2(296, 191)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin3" unique_id=1082167910]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3" unique_id=1457049497]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin4" type="Area2D" parent="." unique_id=203069490]
+position = Vector2(-251, -161)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin4" unique_id=45124960]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4" unique_id=350863669]
+position = Vector2(-15.789468, 42.499996)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin5" type="Area2D" parent="." unique_id=428593908]
+position = Vector2(-158, 208)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin5" unique_id=394376870]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5" unique_id=649574011]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin6" type="Area2D" parent="." unique_id=1269997460]
+position = Vector2(348, 17)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin6" unique_id=1838759660]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin6" unique_id=1699621596]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin7" type="Area2D" parent="." unique_id=2041911446]
+position = Vector2(8, -178)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin7" unique_id=343440638]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin7" unique_id=46020651]
+position = Vector2(116, 17.75)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin8" type="Area2D" parent="." unique_id=595422545]
+position = Vector2(-255, 53)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin8" unique_id=1912893657]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin8" unique_id=137280003]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin9" type="Area2D" parent="." unique_id=1380333250]
+position = Vector2(85, 120)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin9" unique_id=1363735069]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin9" unique_id=1886452392]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin10" type="Area2D" parent="." unique_id=1061826164]
+position = Vector2(493, 257)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin10" unique_id=1037429072]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin10" unique_id=2146376030]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin11" type="Area2D" parent="." unique_id=392030670]
+position = Vector2(-428, 234)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin11" unique_id=1145339688]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin11" unique_id=510276902]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin12" type="Area2D" parent="." unique_id=1499381066]
+position = Vector2(-469, -213)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin12" unique_id=502918898]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin12" unique_id=114500926]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin13" type="Area2D" parent="." unique_id=836448655]
+position = Vector2(-380, -49)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin13" unique_id=1743572747]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin13" unique_id=860321373]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin14" type="Area2D" parent="." unique_id=2139341409]
+position = Vector2(426, -228)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin14" unique_id=512767492]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin14" unique_id=2118360987]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin15" type="Area2D" parent="." unique_id=610800575]
+position = Vector2(418, 124)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin15" unique_id=895883990]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin15" unique_id=1998181687]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin16" type="Area2D" parent="." unique_id=629568091]
+position = Vector2(-129, -228)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin16" unique_id=1139998214]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-48.355244, 42.142857)
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin16" unique_id=1655259858]
+position = Vector2(-53.94735, 38.571426)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin17" type="Area2D" parent="." unique_id=1230221861]
+position = Vector2(-36, 141)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin17" unique_id=11505816]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin17" unique_id=1140838151]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin18" type="Area2D" parent="." unique_id=1562500808]
+position = Vector2(470, -50)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin18" unique_id=1580151816]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin18" unique_id=246896144]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin19" type="Area2D" parent="." unique_id=143628467]
+position = Vector2(130, -245)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin19" unique_id=1776413114]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin19" unique_id=433515493]
+position = Vector2(297, 156)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin20" type="Area2D" parent="." unique_id=267510491]
+position = Vector2(-133, -14)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin20" unique_id=1683937135]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin20" unique_id=1609325155]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin21" type="Area2D" parent="." unique_id=1507325709]
+position = Vector2(207, 53)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin21" unique_id=2018389203]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin21" unique_id=509829493]
+position = Vector2(-140, -154.25)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin22" type="Area2D" parent="." unique_id=709088921]
+position = Vector2(615, 190)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin22" unique_id=1870100103]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(83, -117)
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin22" unique_id=1285891516]
+position = Vector2(-85, -191)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin23" type="Area2D" parent="." unique_id=66972577]
+position = Vector2(-306, 167)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin23" unique_id=1398563463]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin23" unique_id=1178659330]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin24" type="Area2D" parent="." unique_id=649199181]
+position = Vector2(-347, -280)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin24" unique_id=26790930]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin24" unique_id=60386875]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin25" type="Area2D" parent="." unique_id=1964248524]
+position = Vector2(-468, -38)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin25" unique_id=487150702]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin25" unique_id=2077104909]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin26" type="Area2D" parent="." unique_id=833693844]
+position = Vector2(338, -217)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin26" unique_id=1733238346]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-52.960506, 71.42857)
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin26" unique_id=1452580134]
+position = Vector2(-44.40788, -12.142857)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin27" type="Area2D" parent="." unique_id=413542432]
+position = Vector2(330, 135)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin27" unique_id=181784062]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin27" unique_id=907340612]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin28" type="Area2D" parent="." unique_id=2028013309]
+position = Vector2(-217, -217)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin28" unique_id=1822961870]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-31.249989, 63.928574)
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin28" unique_id=2075694959]
+position = Vector2(39.473667, -17.857141)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin29" type="Area2D" parent="." unique_id=1103605784]
+position = Vector2(-124, 152)
+scale = Vector2(3.0400012, 2.8)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin29" unique_id=1569529184]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-43.749985, -12.142858)
+shape = SubResource("CircleShape2D_2xd67")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin29" unique_id=1122193605]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin30" type="Area2D" parent="." unique_id=1534887640]
+position = Vector2(382, -39)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin30" unique_id=90598917]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin30" unique_id=252360921]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin31" type="Area2D" parent="." unique_id=177131676]
+position = Vector2(42, -234)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin31" unique_id=1444235375]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin31" unique_id=692252177]
+position = Vector2(448, 117)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin32" type="Area2D" parent="." unique_id=1635883317]
+position = Vector2(-221, -3)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin32" unique_id=535479022]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin32" unique_id=1971143587]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin33" type="Area2D" parent="." unique_id=595624678]
+position = Vector2(119, 64)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin33" unique_id=423776580]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin33" unique_id=1307308297]
+position = Vector2(-140, -154.25)
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin34" type="Area2D" parent="." unique_id=1891942627]
+position = Vector2(527, 201)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin34" unique_id=1196086692]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin34" unique_id=2138685414]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin35" type="Area2D" parent="." unique_id=33154569]
+position = Vector2(-394, 178)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin35" unique_id=194116399]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin35" unique_id=573515378]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Coin36" type="Area2D" parent="." unique_id=686705167]
+position = Vector2(-435, -269)
+script = ExtResource("5_rk4ig")
+metadata/_custom_type_script = "uid://etia5ljdr22u"
+
+[node name="InteractRadius" type="CollisionShape2D" parent="Coin36" unique_id=1047950784]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("CircleShape2D_4ix5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin36" unique_id=2096966793]
+scale = Vector2(0.03515625, 0.03808594)
+texture = ExtResource("6_05jea")
+
+[node name="Left" type="StaticBody2D" parent="." unique_id=1238203757]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=754521165]
+position = Vector2(-571, -26)
 shape = SubResource("WorldBoundaryShape2D_13vnw")
 
-[node name="Top" type="StaticBody2D" parent="." unique_id=905781296]
-visible = false
+[node name="Top" type="StaticBody2D" parent="." unique_id=449124400]
 position = Vector2(-374.206, -142.01833)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=858796767]
-position = Vector2(368.206, -96.981674)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=1412520379]
+position = Vector2(368.206, -179.98167)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_y15i6")
 
-[node name="Right" type="StaticBody2D" parent="." unique_id=2131403454]
-visible = false
+[node name="Right" type="StaticBody2D" parent="." unique_id=1933958605]
 position = Vector2(-305.28372, -79.92619)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1571687337]
-position = Vector2(769.2837, 53.92621)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=133953755]
+position = Vector2(877.2837, 53.926193)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_rk4ig")
 
-[node name="Bottom" type="StaticBody2D" parent="." unique_id=1788084232]
-visible = false
+[node name="Bottom" type="StaticBody2D" parent="." unique_id=767534981]
 position = Vector2(-271.75397, -39.566315)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=677638720]
-position = Vector2(261.75403, 289.56635)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1405101234]
+position = Vector2(261.75397, 360.5663)
 rotation = 4.712389
 shape = SubResource("WorldBoundaryShape2D_05jea")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1582264211]
+
+[node name="Label" type="Label" parent="." unique_id=634859317]
+offset_left = -124.0
+offset_top = -47.0
+offset_right = 157.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.98039216, 0.8039216, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "YOU WIN!"
