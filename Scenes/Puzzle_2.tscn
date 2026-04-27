@@ -32,6 +32,7 @@ size = Vector2(21.566933, 20.16951)
 [node name="Puzzle2" type="Node2D" unique_id=935435261]
 
 [node name="Player" parent="." unique_id=1450410901 instance=ExtResource("1_44vye")]
+position = Vector2(-503, 0)
 script = ExtResource("2_ffxlk")
 
 [node name="RoomCamera" type="Camera2D" parent="Player" unique_id=1275444303]
